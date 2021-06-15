@@ -1,6 +1,10 @@
+import CategoryCard from './CategoryCard';
 import CustomButton from './CustomButton';
+import TabIcon from './TabIcon';
 
 
 export {
-    CustomButton
+    CategoryCard,
+    CustomButton,
+    TabIcon,
 }

@@ -78,7 +78,14 @@ const Login = ({ navigation }) => {
                     />
                     <CustomButton
                         buttonText="Sign Up"
-                        colors="#000000"
+                        buttonContainerStyle={{
+                            marginTop: SIZES.radius,
+                            paddingVertical: 18,
+                            borderRadius: 20,
+                            borderColor: COLORS.darkLime,
+                            borderWidth: 1,
+                        }}
+                        colors={[COLORS.black, COLORS.black]}
                         onPress={() => navigation.replace("Home")}
                     />
                 </View>
