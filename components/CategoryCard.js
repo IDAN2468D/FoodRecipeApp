@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 
 import { COLORS, FONDS, FONTS, SIZES } from '../constants';
 
@@ -44,9 +44,6 @@ function CategoryCard({ containerStyle, categiryItem, onPress }) {
                     {categiryItem.duration} | {categiryItem.serving} Serving
                 </Text>
             </View>
-
-
-
         </TouchableOpacity>
     )
 }

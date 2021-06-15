@@ -10,8 +10,7 @@ import {
     ScrollView
 } from 'react-native';
 import { COLORS, FONTS, SIZES, icons, images, dummyData } from '../constants';
-import { CategoryCard } from '../components/Index';
-import { CardStyleInterpolators } from '@react-navigation/stack';
+import { CategoryCard, TrendingCard } from '../components/Index';
 
 
 const Home = ({ navigation }) => {
@@ -156,6 +155,37 @@ const Home = ({ navigation }) => {
         )
     }
 
+    function renderTrendingSection() {
+        return (
+            <View style={{ marginTop: SIZES.padding }}>
+                <Text
+                    style={{
+                        marginHorizontal: SIZES.padding,
+                        ...FONTS.h2
+                    }}
+                >Trending Recipe
+                </Text>
+                <FlatList
+                    data={dummyData.trendingRecipes}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={item => `${item.id}`}
+                    renderItem={({ item, index }) => {
+                        return (
+                            <TrendingCard
+                            containerStyle={{
+                                marginLeft: index == 0 ? SIZES.padding : 0
+                            }}
+                                recipeItem={item}
+                                onPress={()=>navigation.navigate("Recipe", {recipe: item})}
+                            />
+                        )
+                    }}
+                />
+            </View>
+        )
+    }
+
     return (
         <View
             style={{
@@ -173,6 +203,7 @@ const Home = ({ navigation }) => {
                         {renderHeader()}
                         {renderSearchBar()}
                         {renderSeeRecipeCard()}
+                        {renderTrendingSection()}
                     </View>
                 }
                 renderItem={({ item }) => {
