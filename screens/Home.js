@@ -173,15 +173,47 @@ const Home = ({ navigation }) => {
                     renderItem={({ item, index }) => {
                         return (
                             <TrendingCard
-                            containerStyle={{
-                                marginLeft: index == 0 ? SIZES.padding : 0
-                            }}
+                                containerStyle={{
+                                    marginLeft: index == 0 ? SIZES.padding : 0
+                                }}
                                 recipeItem={item}
-                                onPress={()=>navigation.navigate("Recipe", {recipe: item})}
+                                onPress={() => navigation.navigate("Recipe", { recipe: item })}
                             />
                         )
                     }}
                 />
+            </View>
+        )
+    }
+
+    function renderCategoryHeader() {
+        return (
+            <View
+                style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    marginTop: 20,
+                    marginHorizontal: SIZES.padding,
+                }}
+            >
+                <Text
+                    style={{
+                        flex: 1,
+                        ...FONTS.h2
+                    }}
+                >
+                    Categories
+                </Text>
+                <TouchableOpacity>
+                    <Text
+                        style={{
+                            color: COLORS.gray,
+                            ...FONTS.body4,
+                        }}
+                    >
+                        View All
+                    </Text>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -204,11 +236,13 @@ const Home = ({ navigation }) => {
                         {renderSearchBar()}
                         {renderSeeRecipeCard()}
                         {renderTrendingSection()}
+                        {renderCategoryHeader()}
                     </View>
                 }
                 renderItem={({ item }) => {
                     return (
-                        <CategoryCard categiryItem={item}
+                        <CategoryCard
+                            categiryItem={item}
                             containerStyle={{
                                 marginHorizontal: SIZES.padding,
                             }}
